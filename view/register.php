@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
@@ -73,25 +74,37 @@
 <body>
     <div id="main_area_register">
         <h1>Register Page</h1>
-        <form action="">
+        <form action="../action/register_user.php" method="post">
             <input type="text" id="first_name" name="first_name" placeholder="First Name"><br>
             <input type="text" id="last_name" name="last_name" placeholder="Last Name"><br>
-
+        
             <div id="genderfield">
-                <p>Please select your gender:</p>
-                <input type="radio" id="male" name="gender" value="Male">
-                <label for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="Female">
-                <label for="female">Female</label><br>
+            <p>Please select your gender:</p>
+            <select name="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
             </div>
             <p>Please select your role</p>
             <select name="family_role" id="family_role">
-                <option value="Select">Select</option>
-                <option value="Father">Father</option>
-                <option value="Mother">Mother</option>
-                <option value="Son">Son</option>
-                <option value="Daughter">Daughter</option>
-            </select><br>
+                <?php
+                include("../functions/select_role.php");
+                // Check if result_query contains data
+                if ($result_query && $result_query->num_rows > 0) {
+                    // Iterate over each row in the result set
+                    while ($row = $result_query->fetch_assoc()) {
+                        // Output an option for each family role
+                        echo '<option value="' . $row['fid'] . '">' . $row['fam_name'] . '</option>';
+                    }
+                } else {
+                    // If no data retrieved or connection error
+                    echo '<option value="">No family Roles Found</option>';
+                }
+                ?>
+            </select>
+            
+
 
             <div>
                 <p>Age:</p><input type="date" id="birthday" name="birthday" placeholder="Birthday"><br>
@@ -107,11 +120,10 @@
 
             <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"><br>
 
-            <input type="submit" value="Register">
+            <button type="submit">Register</button>
 
             <div>
-                <p>Already have an account?</p>
-                <a href="login.html"><button>Sign in</button></a>
+                Already have an account? Sign in <a href="../view/login.html">here</a>
             </div>
         </form>
     </div>
@@ -162,6 +174,7 @@
 
         // Form is valid, you can proceed with submission or other actions
         // For example, you can submit the form using form.submit()
+        form.submit();
     });
 
     function validateName(name) {

@@ -80,10 +80,10 @@
 <body>
     <div id="main_container_login">
         <div id="formArea">
-        <form action="">
+        <form action="../action/login_user.php" method="post">
             <input type="text" id="email" name="email" placeholder="Email"><br>
-            <input type="text" id="password" name="password" placeholder="Password"><br><br>
-            <a href="home.html"><input type="submit" value="Sign in"></a>
+            <input type="password" id="password" name="password" placeholder="Password"><br><br>
+            <input type="submit" value="Sign in" name = 'login'>
             <br><br>
         </form>
         </div>
@@ -91,7 +91,7 @@
 
         <div id="register_button">
             <p>Don't have an account?</p>
-            <a href="register.html"><button>Register</button></a>
+            <a href="../view/register.php"><button>Register</button></a>
         </div>
         
 
@@ -119,8 +119,7 @@
             return;
         }
 
-        // Form is valid, you can proceed with submission or other actions
-        // For example, you can submit the form using form.submit()
+        form.submit()
     });
 
     function validateEmail(email) {
