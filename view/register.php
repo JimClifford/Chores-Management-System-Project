@@ -128,6 +128,9 @@
         </form>
     </div>
 </body>
+<?php
+
+?>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector('form');

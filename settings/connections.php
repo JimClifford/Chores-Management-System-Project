@@ -12,5 +12,4 @@ if ($connection->connect_error){
 }
 
 
-echo "Connection to db status: Connection Successful";
 ?>
