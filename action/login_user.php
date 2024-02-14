@@ -32,14 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" /*&& isset($_POST['login'])*/) {
             exit();
         } else {
             // Password is incorrect
-            echo "Incorrect password, Type in the correct password.";
-            // header("Location: ../view/login.html");
-            // exit();
+            echo "<script>alert('Incorrect password. Please type in the correct password.');</script>";
         }
+        
     } else {
         // User not found
-        echo "Incorrect email Or User not found";
-        exit();
+        header("Location: ../view/login.html");
+        echo "Incorrect email Or User not found:"."<script>alert('Type in the correct email.');</script>";
     }
 } 
 else {

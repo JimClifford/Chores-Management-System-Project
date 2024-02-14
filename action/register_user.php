@@ -16,9 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Encrypt the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    echo $hashed_password;
-    echo $password;
-
     $insert_query = "INSERT INTO people (rid,fid,fname, lname, gender, tel, dob, email, passwd) VALUES ('$role_id', '$family_role', '$first_name', '$last_name', '$gender', '$phone', '$birthday', '$email', '$hashed_password')";
 
 if ($connection->query($insert_query) === TRUE) {
