@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="sweetalert2.all.min.js"></script>
     <title>Login Page</title>
     <style>
         body {
@@ -79,7 +80,9 @@
 </head>
 <body>
     <div id="main_container_login">
+        
         <div id="formArea">
+            
         <form action="../action/login_user.php" method="post">
             <input type="text" id="email" name="email" placeholder="Email"><br>
             <input type="password" id="password" name="password" placeholder="Password"><br><br>
@@ -98,8 +101,48 @@
 
 
     </div>
+
+    <?php
+// Check if the 'msg' parameter is passed in the URL
+if(isset($_GET['msg'])) {
+    // Retrieve the value of the 'msg' parameter
+    $message = $_GET['msg'];
+
+    // Encode the message as JSON to pass it to JavaScript
+    $messageJson = json_encode($message);
+} else {
+    // If no message parameter is found, set it to null
+    $messageJson = 'null';
+}
+?>
 </body>
+
+
+
 <script>
+    var message = <?php echo $messageJson; ?>;
+
+    // Display SweetAlert based on the message received
+    if(message !== null) {
+    if(message === 'IncorrectPassword') {
+        Swal.fire(
+            'Incorrect password!',
+            'Type in correct password',
+            'error'
+        );
+    } else if(message === 'UserNotFound') {
+        Swal.fire(
+            'User Not Found',
+            'Use correct email',
+            'error'
+        );
+    } else if(message === 'SubmitError') {
+        Swal.fire(
+            'Submission error occurred!',
+            'Try again soon.',
+            'error'
+        );}
+    }
     document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector('form');
 

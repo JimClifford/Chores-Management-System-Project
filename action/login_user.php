@@ -30,21 +30,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" /*&& isset($_POST['login'])*/) {
             $_SESSION['lname'] = $user['lname'];
 
             // Redirect to homepage
-            header("Location: ../view/home.html");
+            if ($_SESSION['role_id'] == 1){
+            header("Location: ../view/adminhome.php");}
+            elseif ($_SESSION['role_id'] == 2) {
+            header("Location: ../view/adminhome.php");
+            }else{
+            header("Location: ../view/home.php");
+            }
             exit();
         } else {
             // Password is incorrect
-            echo "<script>alert('Incorrect password. Please type in the correct password.');</script>";
+            // use the header function to redirect to login.php and then give a message;
+            header("Location: ../view/login.php?msg=IncorrectPassword");
         }
         
     } else {
         // User not found
-        header("Location: ../view/login.html");
-        echo "Incorrect email Or User not found:"."<script>alert('Type in the correct email.');</script>";
+        header("Location: ../view/login.html?msg=UserNotFound");
+    
     }
 } 
 else {
-    header("Location: ../view/login.html");
+    header("Location: ../view/login.html?msg=SubmitError");
 
 }
 $connection->close();
