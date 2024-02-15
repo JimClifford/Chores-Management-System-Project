@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" /*&& isset($_POST['login'])*/) {
         
     } else {
         // User not found
-        header("Location: ../view/login.html?msg=UserNotFound");
+        header("Location: ../view/login.php?msg=UserNotFound");
     
     }
 } 

@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = mysqli_real_escape_string($connection, $_POST['phone']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
-
+    $role_id  = 3;
     // Stage 2
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -20,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($connection->query($insert_query) === TRUE) {
         
-        header("Location: ../view/login.html?msg=success");
-        exit();
+        header("Location: ../view/login.php?msg=success");
+        
     } else {
-        echo "Error: " . $insert_query. "<br>" . $connestion->error;
+        echo "Error: ". $insert_query."<br>". $connestion->error;
     }
 
 }  

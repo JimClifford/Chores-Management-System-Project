@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="sweetalert2.all.min.js"></script>
+    
     <title>Login Page</title>
     <style>
         body {
@@ -104,45 +104,31 @@
 
     <?php
 // Check if the 'msg' parameter is passed in the URL
+$message = '';
 if(isset($_GET['msg'])) {
-    // Retrieve the value of the 'msg' parameter
-    $message = $_GET['msg'];
-
+    if ($_GET['msg'] == 'IncorrectPassword'){
+        $message = "Type in correct password";
+    }
+    elseif($_GET['msg'] == 'UserNotFound'){
+        $message = "Type in correct email";
+    }
+    elseif($_GET['msg'] == 'SubmitError'){
+       $message = 'There was an error submitting the form';
+    }
     // Encode the message as JSON to pass it to JavaScript
     $messageJson = json_encode($message);
 } else {
     // If no message parameter is found, set it to null
     $messageJson = 'null';
 }
+
 ?>
 </body>
 
 
 
 <script>
-    var message = <?php echo $messageJson; ?>;
-
-    // Display SweetAlert based on the message received
-    if(message !== null) {
-    if(message === 'IncorrectPassword') {
-        Swal.fire(
-            'Incorrect password!',
-            'Type in correct password',
-            'error'
-        );
-    } else if(message === 'UserNotFound') {
-        Swal.fire(
-            'User Not Found',
-            'Use correct email',
-            'error'
-        );
-    } else if(message === 'SubmitError') {
-        Swal.fire(
-            'Submission error occurred!',
-            'Try again soon.',
-            'error'
-        );}
-    }
+    
     document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector('form');
 
@@ -174,7 +160,24 @@ if(isset($_GET['msg'])) {
         // Password must be at least 8 characters long
         return password.length >= 8;
     }
+
+
+
 });
+
+let message = $messageJson;
+
+if(message !== null) {
+if(message === "IncorrectPassword") {
+    alert(message);
+} else if(message === "UserNotFound") {
+    alert(message);
+} else if(message === "SubmitError") {
+    alert(message);
+}
+}else {
+
+}
 
 </script>
 </html>
