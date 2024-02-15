@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../view/login.php?msg=success");
         
     } else {
+        // Give Error
         echo "Error: ". $insert_query."<br>". $connestion->error;
     }
 

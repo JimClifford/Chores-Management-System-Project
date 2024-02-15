@@ -1,12 +1,12 @@
 <?php 
 
 session_start();
-error_reporting(E_ALL); ini_set('display_errors', 1);
 
 
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" /*&& isset($_POST['login'])*/) {
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     include ('../settings/connections.php');
     
     $email = mysqli_real_escape_string($connection, $_POST['email']);
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" /*&& isset($_POST['login'])*/) {
             $_SESSION['fname'] = $user['fname'];
             $_SESSION['lname'] = $user['lname'];
 
-            // Redirect to homepage
+            // Redirect to homepage bases on role ID
             if ($_SESSION['role_id'] == 1){
             header("Location: ../view/adminhome.php");}
             elseif ($_SESSION['role_id'] == 2) {

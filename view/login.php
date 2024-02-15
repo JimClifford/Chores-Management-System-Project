@@ -115,12 +115,13 @@ if(isset($_GET['msg'])) {
     elseif($_GET['msg'] == 'SubmitError'){
        $message = 'There was an error submitting the form';
     }
-    // Encode the message as JSON to pass it to JavaScript
-    $messageJson = json_encode($message);
+    
+    
 } else {
     // If no message parameter is found, set it to null
-    $messageJson = 'null';
+    $message = 'null';
 }
+
 
 ?>
 </body>
@@ -128,7 +129,7 @@ if(isset($_GET['msg'])) {
 
 
 <script>
-    
+    // I TRIED TO DO THE ALERT FUNCTIONALTY BASED ON THE MSG IN GET METHOD , BUT I COULD NOT FIGURE IT OUT.
     document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector('form');
 
@@ -165,19 +166,6 @@ if(isset($_GET['msg'])) {
 
 });
 
-let message = $messageJson;
-
-if(message !== null) {
-if(message === "IncorrectPassword") {
-    alert(message);
-} else if(message === "UserNotFound") {
-    alert(message);
-} else if(message === "SubmitError") {
-    alert(message);
-}
-}else {
-
-}
 
 </script>
 </html>

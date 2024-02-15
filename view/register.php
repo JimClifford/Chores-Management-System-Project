@@ -7,7 +7,7 @@
     <title>Register Page</title>
     <style>
         body {
-            background-image: url('register.jpg'); /* Replace 'register.jpg' with your actual image file path */
+            background-image: url('../view/register.jpg');
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -175,8 +175,7 @@
             return;
         }
 
-        // Form is valid, you can proceed with submission or other actions
-        // For example, you can submit the form using form.submit()
+        
         form.submit();
     });
 
