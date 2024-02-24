@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +16,7 @@
       max-width: 300px;
       padding: 10px;
     }
+
 
     /* Full-width input fields */
     .form-popup input[type=text], .form-popup input[type=password] {
@@ -64,24 +64,24 @@
           <img src="logo.png" alt="Logo">
           <span class="nav-item">ChoreManager+</span>
         </a></li>
-        <li><a href="home.html">
+        <li><a href="home.php">
           
           <span class="nav-item">Home - Dashboard</span>
         </a></li>
-        <li><a href="managechores.html">
+        <li><a href="managechores.php">
           
           <span class="nav-item">Manage Chores</span>
         </a></li>
-        <li><a href="addchores.html">
+        <li><a href="addchores.php">
           
           <span class="nav-item">Add Chore</span>
         </a></li>
-        <li><a href="assignchore.html">
+        <li><a href="assignchore.php">
           
           <span class="nav-item">Assign Chore</span>
         </a></li>
         <li><a href="#" class="logout">
-        
+          
           <span class="nav-item">Log out</span>
         </a></li>
       </ul>
@@ -96,63 +96,30 @@
         <div class="attendance-list">
           <h1>Chore List</h1>
 
-          
-          <button class="open-button" onclick="openForm()">Assign Chore</button>
+          <!-- A button to open the popup form -->
+          <button class="open-button" onclick="openForm()">Add Chore</button>
 
-          
+          <!-- The form -->
           <div class="form-popup" id="myForm">
-            <form class="form-container">
-                <h1>Assign Chore</h1>
-                
-
-               
-
-                <label for="choreName">Chore Name:</label>
-                <input type="text" id="choreName" placeholder="Enter Chore Name" name="choreName" required>
-              
-                
-                <label for="assignee">Assignee:</label>
-                <select id="assignee" name="assignee" required>
-                  <option value="Son">Son</option>
-                  <option value="Daughter">Daughter</option>
-                  <option value="Mother">Mother</option>
-                  <option value="Father">Father</option>
-                </select>
-                 
-                <label for="dueDate">Due Date:</label>
-                <input type="text" id="dueDate" placeholder="Due Date" name="dueDate" required>
-           
-                <label for="additionalInfo">Additional Info:</label>
-                <textarea id="additionalInfo" placeholder="Additional Info" name="additionalInfo"></textarea>
-              
-               
-                <button type="submit" class="btn">Add</button>
-                
-               
-                <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-              </form>
-              
+            <form class="form-container" method="post" action="../action/add_chore.php">
+              <h1>Add Chore</h1>
+              <input type="text" id="choreName" placeholder="Enter Chore Name" name="choreName" required>
+              <button type="submit" class="btn">Add</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+            </form>
           </div>
 
           <table class="table">
             <thead>
               <tr>
-                    <th>Task</th>
-                    <th>Assigned By</th>
-                    <th>Date Assigned</th>
-                    <th>Date Due</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                <th>Chore Task</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Chore 1</td>
-                <td>Admin 1</td>
-                <td>01-3-24</td>
-                <td>02-3-24</td>
-                <td>In progress</td>
-                <td><button>View</button></td>
+                <td><button>Edit</button></td>
               </tr>
             </tbody>
           </table>
@@ -169,6 +136,21 @@
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
     }
+
+    function validateInput(input) {
+      var regex = /^[a-zA-Z\s]*$/; // Regular expression to allow only alphabets and spaces
+      if (!regex.test(input.value)) {
+        alert("Please enter only alphabets!");
+        input.value = ''; // Clear the input field
+      }
+    }
+
+    window.onload = function() {
+      var choreInput = document.querySelector('input[name="choreName"]');
+      choreInput.addEventListener('input', function() {
+        validateInput(choreInput);
+      });
+    };
   </script>
 </body>
 </html>

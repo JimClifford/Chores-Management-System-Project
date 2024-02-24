@@ -12,7 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = mysqli_real_escape_string($connection, $_POST['phone']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $password = mysqli_real_escape_string($connection, $_POST['password']);
-    $role_id  = 3;
+    $role_id;
+    if ($family_role == 1 || $family_role == 2){
+        $role_id  = 2;
+
+    }else {
+        $role_id = 3;
+    }
+
+    
     // Stage 2
     // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);

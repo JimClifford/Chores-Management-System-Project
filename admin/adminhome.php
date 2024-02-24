@@ -2,36 +2,36 @@
     <html lang="en">
     <head>
       <meta charset="UTF-8" />
-      <title>Attendance Dashboard | By Code Info</title>
-      <link rel="stylesheet" href="home.css" />
+      <title>Chores Dashboard | By Code Info</title>
+      <link rel="stylesheet" href="../view/home.css" />
       
     </head>
     <body>
       <div class="container">
         <nav>
           <ul>
-            <li><a href="adminhome.html" class="logo">
-              <img src="logo.png">
+            <li><a href="#" class="logo">
+              <img src="../view/logo.png">
               <span class="nav-item">ChoreManager+</span>
             </a></li>
-            <li><a href="adminhome.html">
+            <li><a href="#">
               
               <span class="nav-item">Home - Dashboard</span>
             </a></li>
-            <li><a href="managechores.html">
+            <li><a href="../view/managechores.php">
               
               <span class="nav-item">Manage Chores</span>
             </a></li>
-            <li><a href="addchores.html">
+            <li><a href="../view/addchores.php">
               
               <span class="nav-item">Add Chore</span>
             </a></li>
-            <li><a href="assignchore.html">
-              <
+            <li><a href="../view/assignchore.php">
+              
               <span class="nav-item">Assign Chore</span>
             </a></li>
 
-            <li><a href="" class="logout">
+            <li><a href="#" class="logout">
               
               <span class="nav-item">Log out</span>
             </a></li>
@@ -45,7 +45,15 @@
             
           </div>
           <div class="users">
-            <a href=""></a><div class="card">
+            <div class="card">
+              
+                <h4>All Chores</h4>
+                 
+                 
+                <h5>7</h5>
+                 
+                </div>
+            <div class="card">
               
             <h4>In Progress</h4>
              
@@ -72,7 +80,7 @@
           </div>
           <section class="attendance">
             <div class="attendance-list">
-              <h1>Task List</h1>
+              <h1>Recently Assigned Chores</h1>
               <table class="table">
                 <thead>
                   <tr>

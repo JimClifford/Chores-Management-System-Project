@@ -31,9 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
             // Redirect to homepage bases on role ID
             if ($_SESSION['role_id'] == 1){
-            header("Location: ../view/adminhome.php");}
+            header("Location: ../admin/adminhome.php");}
             elseif ($_SESSION['role_id'] == 2) {
-            header("Location: ../view/adminhome.php");
+            header("Location: ../admin/adminhome.php");
             }else{
             header("Location: ../view/home.php");
             }

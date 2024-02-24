@@ -10,23 +10,23 @@
       <div class="container">
         <nav>
           <ul>
-            <li><a href="home.html" class="logo">
+            <li><a href="home.php" class="logo">
               <img src="logo.png">
               <span class="nav-item">ChoreManager+</span>
             </a></li>
-            <li><a href="home.html">
+            <li><a href="home.php">
               
               <span class="nav-item">Home - Dashboard</span>
             </a></li>
-            <li><a href="managechores.html">
+            <li><a href="managechores.php">
               
               <span class="nav-item">Manage Chores</span>
             </a></li>
-            <li><a href="addchores.html">
+            <li><a href="addchores.php">
               
               <span class="nav-item">Add Chore</span>
             </a></li>
-            <li><a href="assignchore.html">
+            <li><a href="assignchore.php">
               
               <span class="nav-item">Assign Chore</span>
             </a></li>
