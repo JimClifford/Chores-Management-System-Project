@@ -1,50 +1,32 @@
 <?php
-include ('../settings/core.php');
-include ('../action/get_a_chore.php');
-include ('../settings/connections.php');
-
-
-// Check if the 'id' parameter exists in the URL
-if(isset($_GET['id'])) {
-    // 'id' parameter exists, retrieve its value
-    $id = $_GET['id'];
-    $choreToEdit = get_a_chore($id);
-
-    if($stmt = $connection->prepare($sql)){
-        // Bind the parameter
-        $stmt->bind_param("i", $id);
+          include ('../settings/core.php');
+          include ('../settings/connections.php');
         
-        // Execute the statement
-        if($stmt->execute()){
-            // Record deleted successfully
-            header("Location: ../view/addchores.php");
-        } else{
-            // Error executing delete query
-            header("Location: ../view/addchores.php?msg=DeleteError");
-            // echo "Error executing delete query: " . $stmt->error;
+         if(check_user_login()){
+          if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $chore_name = mysqli_real_escape_string($connection, $_POST['choreName']);
+            $chore_id = mysqli_real_escape_string($connection, $_POST['chore_id']);
+            
+            
+            $query = "UPDATE chores SET chorename = '$chore_name' WHERE cid = '$chore_id'";
+        
+            if ($connection->query($query) === TRUE) {
+                header("Location: ../view/addchores.php");
+            } else {
+                // Give Error
+                echo "Error: ". $query."<br>". $connection->error;
+            }
+        
+        }  
+        else {
+            echo "Form not submitted!";
         }
-        
-        // Close statement
-        $stmt->close();
+          
+        // Close connection
+        $connection->close();
     } else{
-        // Error preparing delete statement
-        header("Location: ../view/addchores.php?msg=Error");
-        // echo "Error preparing delete statement: " . $connection->error;
+    header("Location: ../view/login.php");
+    die("Sorry, your session has expired.");
     }
-} else {
-    
-    // 'id' parameter does not exist in the URL
-    header("Location: ../view/addchores.php");
-}
-
-// Close connection
-$connection->close();
-
-
-
-
-
-
-
-
+  
 ?>

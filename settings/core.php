@@ -9,8 +9,8 @@ function check_user_login() {
     }
 }
 
-if (!check_user_login()) {
-    header("Location: login.html");
-    die("Sorry, your session has expired.");
-}
+// if (!check_user_login()) {
+//     header("Location: login.php");
+//     die("Sorry, your session has expired.");
+// }
 ?>

@@ -14,7 +14,7 @@ function display_chores() {
             echo '<td>' . $row['cid'] . '</td>';
             echo '<td>' . $row['chorename'] . '</td>';
             echo '<td>';
-            echo '<button onclick="openFormE()">Edit</button>';
+            echo '<a href="../view/edit_chore_view.php?id=' . $row['cid'] . '"><button>Edit</button></a>';
             echo '<a href="../action/delete_chore.php?id=' . $row['cid'] . '"><button>Delete</button></a>';
             echo '</td>';
             echo '</tr>';

@@ -109,18 +109,7 @@
               <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
             </form>
           </div>
-          <?php
           
-          ?>
-          <div class="form-popup" id="myEditForm">
-            <form class="form-container" method="post" action="../action/edit_a_chore.php">
-              <h1>Edit Chore</h1>
-              <input type="text" id="choreName" placeholder="Enter Chore Name" name="choreName" required>
-              <button type="submit" class="btn">Edit</button>
-              <button type="button" class="btn cancel" onclick="closeFormE()">Cancel Edit</button>
-            </form>
-          </div>
-
           <table class="table">
             <thead>
               <tr>
@@ -150,15 +139,6 @@
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
     }
-
-    function openFormE() {
-      document.getElementById("myEditForm").style.display = "block";
-    }
-
-    function closeFormE() {
-      document.getElementById("myEditForm").style.display = "none";
-    }
-
     function validateInput(input) {
       var regex = /^[a-zA-Z\s]*$/; // Regular expression to allow only alphabets and spaces
       if (!regex.test(input.value)) {
