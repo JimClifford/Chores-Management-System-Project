@@ -13,7 +13,7 @@ if (check_user_login()) {
     
         if ($connection->query($insert_query) === TRUE) {
             
-            header("Location: ../view/addchores.php?msg=success");
+            header("Location: ../view/addchores.php");
             
         } else {
             // Give Error
