@@ -54,6 +54,7 @@
     .form-popup .btn:hover, .open-button:hover {
       opacity: 1;
     }
+    
   </style>
 </head>
 <body>
@@ -112,15 +113,17 @@
           <table class="table">
             <thead>
               <tr>
-                <th>Chore Task</th>
+                <th>Chore ID</th>
+                <th>Chore Name</th>
                 <th>Actions</th>
+
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Chore 1</td>
-                <td><button>Edit</button></td>
-              </tr>
+              <?php
+              include '../functions/chore_fxn.php';
+              display_chores();
+              ?>
             </tbody>
           </table>
         </div>
