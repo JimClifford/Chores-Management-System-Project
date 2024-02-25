@@ -1,9 +1,9 @@
 <?php 
 
 
+session_start();
 
-
-$session_lifetime = 1 * 60; // 
+$session_lifetime = 1 * 60; 
 session_set_cookie_params($session_lifetime);
 
 
@@ -30,9 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             $_SESSION['fname'] = $user['fname'];
             $_SESSION['lname'] = $user['lname'];
 
-            $session_lifetime = 1 * 60; 
-            session_set_cookie_params($session_lifetime);
-            session_start();
             // Redirect to homepage bases on role ID
             if ($_SESSION['role_id'] == 1){
             header("Location: ../admin/adminhome.php");}
