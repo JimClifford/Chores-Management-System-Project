@@ -11,7 +11,17 @@
 <body>
   <div class="container">
     <nav>
-      <!-- Navigation code -->
+      <ul>
+      <li><a href="addchores.php">
+          
+          <span class="nav-item">Add Chore</span>
+        </a></li>
+
+        <li><a href="../settings/logout.php" class="logout">
+        
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
     </nav>
 
     <section class="main">

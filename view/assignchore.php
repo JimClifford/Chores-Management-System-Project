@@ -68,19 +68,20 @@
           
           <span class="nav-item">Home - Dashboard</span>
         </a></li>
-        <li><a href="managechores.php">
-          
-          <span class="nav-item">Manage Chores</span>
-        </a></li>
         <li><a href="addchores.php">
           
           <span class="nav-item">Add Chore</span>
         </a></li>
+        <li><a href="managechores.php">
+          
+          <span class="nav-item">Manage Chores</span>
+        </a></li>
+        
         <li><a href="assignchore.php">
           
           <span class="nav-item">Assign Chore</span>
         </a></li>
-        <li><a href="#" class="logout">
+        <li><a href="../settings/logout.php" class="logout">
         
           <span class="nav-item">Log out</span>
         </a></li>
