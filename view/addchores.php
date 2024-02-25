@@ -54,6 +54,18 @@
     .form-popup .btn:hover, .open-button:hover {
       opacity: 1;
     }
+    .open-button {
+    display: inline-block;
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
     
   </style>
 </head>
@@ -96,11 +108,11 @@
 
       <section class="attendance">
         <div class="attendance-list">
-          <h1>Chore List</h1>
+          
 
           <!-- A button to open the popup form -->
           <button class="open-button" onclick="openForm()">Add Chore</button>
-
+          <h1>Chore List</h1>
           <!-- The form -->
           <div class="form-popup" id="myForm">
             <form class="form-container" method="post" action="../action/add_chore.php">
